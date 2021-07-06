@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{853B74C4-C6D0-4BCF-8226-7478D6974CB0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DWUCreationKit</RootNamespace>
+    <AssemblyName>DWUCreationKit</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2CF4F55E7DD444D66BE889EF4F36D291B4300F76</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DWCreationKit_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.1.9, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.1\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MGNLib">
+      <HintPath>..\..\MGNLib\bin\Release\MGNLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DWCreationKit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DWCreationKit.Designer.cs">
+      <DependentUpon>DWCreationKit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\ThemeObjectBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemeObjectBrowser.Designer.cs">
+      <DependentUpon>ThemeObjectBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThemeDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Theme\ITheme.cs" />
+    <Compile Include="Theme\IThemeObject.cs" />
+    <Compile Include="Theme\Theme.cs" />
+    <Compile Include="Theme\ThemeObject.cs" />
+    <EmbeddedResource Include="DWCreationKit.resx">
+      <DependentUpon>DWCreationKit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\ThemeObjectBrowser.resx">
+      <DependentUpon>ThemeObjectBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DWCreationKit_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\desktop.ini" />
+    <None Include="ThemeDBDataSet.xsc">
+      <DependentUpon>ThemeDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ThemeDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThemeDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ThemeDBDataSet.xss">
+      <DependentUpon>ThemeDBDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+    <Folder Include="ThemeDB\Default\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\advisorsuggestion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\angry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowhead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assaultpod_landing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroidField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\automate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bombard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\build.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buildbomber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buildButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buildfighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_Ambassador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_ColonyGovernor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_FleetAdmiral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_IntelligenceAgent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_Leader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_PirateLeader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_Scientist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_ShipCaptain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characterRole_TroopGeneral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\characters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charactersButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\civilianfade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\codeforce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coloniesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colonization_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colonize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colony.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\construction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\constructionYardsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crashprogram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crashprogramdisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleBases.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleBasesBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleColonies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleColoniesBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleConstruction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleConstructionBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleFleets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleFleetsBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleIdleShips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleIdleShipsBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleMilitary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleMilitaryBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleOther.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cycleOtherBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\debrisField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\designs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\designsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\developmentLevel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diplomacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diplomacyButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emergency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empireGraphs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empireGraphsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empirePolicy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empirePolicyButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraseasteroidfield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erasecolony.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraseitem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erasepopulation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraseruins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expansionPlanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expansionPlannerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fighters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\firepower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetAttackPoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetAttackPosture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetDefendPosture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetHomeBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetLeader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetposture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetRangeAny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetRangeArea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetRangeSector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetRangeSystem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetRangeTarget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fleetsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galacticHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galacticHistoryButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galactopedia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galactopediaButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galactopediaHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxy_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyMap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyMapButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_clusterseven.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_clustersvaried.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_elliptical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_irregular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_ring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\galaxyshape_spiral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameEditor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameEditorButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameEnd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameOptions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameOptionsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardians.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\joinfleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\launchbombers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\launchfighters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leavefleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leftarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loadtroops.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lockView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\longrangescanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\matrix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_ChangeTheme_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_ChangeTheme_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_CheckForUpdates_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_CheckForUpdates_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Credits_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Credits_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Exit_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Exit_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Galactopedia_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Galactopedia_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_LoadGame_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_LoadGame_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Options_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Options_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_StartNewGame_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_StartNewGame_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Tutorials_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_Tutorials_Inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messagesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nearestMilitary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neutral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newfleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panelframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseresume_Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseresume_Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirateflag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirateflag_Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirateMissionAttack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirateMissionDefend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirateMissionSmuggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playstyle_normalclassic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playstyle_normalshadows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playstyle_pirateclassic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playstyle_pirateshadows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refuel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\research.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\research_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retrievebombers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retrievefighters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retrofitbase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retrofitship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\returntotop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scenery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scrapbase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scrapfighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scrolldownarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scrolluparrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectionPanelSize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shakturi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shipsAndBases.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShipsAndBasesButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shipStance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\storyEvent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\storyMessage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\territory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggleDisplayDetail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travelvector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travelVectorCivilian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travelVectorMilitary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\treaty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\troops.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\troopsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unautomate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upgradefighters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\victory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warpjump_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomcolony.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomregion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomsector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomsystem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ThemeDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ThemeDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ThemeDB.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
